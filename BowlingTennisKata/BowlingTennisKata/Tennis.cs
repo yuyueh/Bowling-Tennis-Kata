@@ -23,6 +23,11 @@ namespace Tennis
         {
             if (_firstPlayerScore == _secondPlayerScore)
             {
+                if (_firstPlayerScore >= 3)
+                {
+                    return "Deuce";
+                }
+
                 return $"{_scoreMapping[_firstPlayerScore]}-All";
             }
 
