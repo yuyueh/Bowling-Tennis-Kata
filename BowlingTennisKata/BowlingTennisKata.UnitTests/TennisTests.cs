@@ -118,7 +118,7 @@ namespace Tennis.UnitTests
 
             // Act
             _target.GivenFirstPlayerScore(1);
-            _target.GivenSecondPlayerScore(2);
+            _target.GivenSecondPlayerScore(1);
             var result = _target.Score();
 
             // Assert

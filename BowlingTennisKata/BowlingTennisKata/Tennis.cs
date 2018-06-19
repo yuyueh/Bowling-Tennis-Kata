@@ -27,7 +27,7 @@ namespace Tennis
                 return $"{_scoreMapping[_firstPlayerScore]}-{_scoreMapping[_secondPlayerScore]}";
             }
 
-            return "Love-All";
+            return $"{_scoreMapping[_firstPlayerScore]}-All";
         }
 
         public void GivenFirstPlayerScore(int score)
