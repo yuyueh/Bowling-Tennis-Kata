@@ -31,5 +31,10 @@ namespace Tennis
         {
             _firstPlayerScore = score;
         }
+
+        public void GivenSecondPlayerScore(int score)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
