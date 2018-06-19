@@ -6,8 +6,17 @@ namespace Tennis.UnitTests
     public class TennisTests
     {
         [Test]
-        public void FirstTest()
+        public void Test_LoveAll_()
         {
+            // Arrange
+            var target = new Tennis();
+            var expected = "Love-All";
+
+            // Act
+            var result = target.Score();
+
+            // Assert
+            Assert.AreEqual(result, expected);
         }
     }
 }
