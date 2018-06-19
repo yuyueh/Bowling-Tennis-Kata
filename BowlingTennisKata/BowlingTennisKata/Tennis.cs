@@ -38,7 +38,8 @@ namespace Tennis
 
             if (_firstPlayerScore > 3)
             {
-                return $"{_firstPlayerName} Adv";
+                var differenceOfScore = _firstPlayerScore - _secondPlayerScore;
+                return $"{_firstPlayerName} {(differenceOfScore > 1 ? "Win" : "Adv")}";
             }
 
             return $"{_scoreMapping[_firstPlayerScore]}-{_scoreMapping[_secondPlayerScore]}";
