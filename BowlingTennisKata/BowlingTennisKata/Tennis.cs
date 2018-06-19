@@ -21,12 +21,12 @@ namespace Tennis
 
         public string Score()
         {
-            if (_firstPlayerScore > 0 || _secondPlayerScore > 0)
+            if (_firstPlayerScore == _secondPlayerScore)
             {
-                return $"{_scoreMapping[_firstPlayerScore]}-{_scoreMapping[_secondPlayerScore]}";
+                return $"{_scoreMapping[_firstPlayerScore]}-All";
             }
 
-            return "Love-All";
+            return $"{_scoreMapping[_firstPlayerScore]}-{_scoreMapping[_secondPlayerScore]}";
         }
 
         public void GivenFirstPlayerScore(int score)
