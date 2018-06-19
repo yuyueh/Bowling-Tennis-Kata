@@ -244,5 +244,20 @@ namespace Tennis.UnitTests
             // Assert
             Assert.AreEqual(result, expected);
         }
+
+        [Test]
+        public void Test_DZPerfectWin()
+        {
+            // Arrange
+            var expected = "DZ Win";
+
+            // Act
+            _target.GivenFirstPlayerScore(0);
+            _target.GivenSecondPlayerScore(4);
+            var result = _target.Score();
+
+            // Assert
+            Assert.AreEqual(result, expected);
+        }
     }
 }
