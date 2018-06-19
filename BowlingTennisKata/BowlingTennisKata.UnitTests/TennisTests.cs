@@ -27,7 +27,7 @@ namespace Tennis.UnitTests
             var expected = "Fifteen-Love";
 
             // Act
-            target.SetOnePlayerScore(1);
+            target.SetFirstPlayerScore(1);
             var result = target.Score();
 
             // Assert

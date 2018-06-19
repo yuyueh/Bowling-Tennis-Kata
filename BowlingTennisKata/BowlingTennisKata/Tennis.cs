@@ -15,7 +15,7 @@
             return "Love-All";
         }
 
-        public void SetOnePlayerScore(int score)
+        public void SetFirstPlayerScore(int score)
         {
             _firstPlayerScore = score;
         }
