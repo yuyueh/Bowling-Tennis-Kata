@@ -30,7 +30,14 @@ namespace Tennis
                     return "Deuce";
                 }
 
-                return "Lin Adv";
+                if (_firstPlayerScore - _secondPlayerScore > 1)
+                {
+                    return "Lin Win";
+                }
+                else
+                {
+                    return "Lin Adv";
+                }
             }
             
             if (_firstPlayerScore != _secondPlayerScore)
