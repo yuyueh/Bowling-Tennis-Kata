@@ -11,6 +11,11 @@
             {
                 return "Fifteen-Love";
             }
+            
+            if (_firstPlayerScore == 2 && _secondPlayerScore == 0)
+            {
+                return "Thirty-Love";
+            }
 
             return "Love-All";
         }
