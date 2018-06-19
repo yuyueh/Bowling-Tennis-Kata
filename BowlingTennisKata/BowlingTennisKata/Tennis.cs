@@ -2,9 +2,9 @@
 {
     public class Tennis
     {
-        public object Score()
+        public string Score()
         {
-            throw new System.NotImplementedException();
+            return "Love-All";
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Tennis.UnitTests
     public class TennisTests
     {
         [Test]
-        public void Test_LoveAll_()
+        public void Test_LoveAll()
         {
             // Arrange
             var target = new Tennis();
