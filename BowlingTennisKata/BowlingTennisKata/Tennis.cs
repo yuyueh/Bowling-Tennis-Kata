@@ -6,9 +6,10 @@ namespace Tennis
     {
         private int _firstPlayerScore;
         private int _secondPlayerScore;
-        private string _firstPlayer;
-        private string _secondPlayer;
+        private readonly string _firstPlayer;
+        private readonly string _secondPlayer;
         private readonly Dictionary<int, string> _scoreMapping;
+        private readonly Dictionary<int, string> _scoreCompareMapping;
 
         public Tennis(string firstPlayer, string secondPlayer)
         {
@@ -24,25 +25,20 @@ namespace Tennis
                 {2, "Thirty"},
                 {3, "Forty"}
             };
+
+            _scoreCompareMapping = new Dictionary<int, string>()
+            {
+                {0, "Deuce"},
+                {1, _firstPlayer + " Adv"},
+                {2, _firstPlayer + " Win"}
+            };
         }
 
         public string Score()
         {
             if (_firstPlayerScore >= 3 && _secondPlayerScore >= 3)
             {
-                if (_firstPlayerScore == _secondPlayerScore)
-                {
-                    return "Deuce";
-                }
-
-                if (_firstPlayerScore - _secondPlayerScore > 1)
-                {
-                    return _firstPlayer + " Win";
-                }
-                else
-                {
-                    return _firstPlayer + " Adv";
-                }
+                return _scoreCompareMapping[_firstPlayerScore - _secondPlayerScore];
             }
             
             if (_firstPlayerScore != _secondPlayerScore)
