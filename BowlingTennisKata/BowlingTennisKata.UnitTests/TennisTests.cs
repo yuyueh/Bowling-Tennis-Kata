@@ -10,7 +10,7 @@ namespace Tennis.UnitTests
         [SetUp]
         public void SetUp()
         {
-            _target = new Tennis();
+            _target = new Tennis("Lin", "DZ");
         }
 
         [Test]
