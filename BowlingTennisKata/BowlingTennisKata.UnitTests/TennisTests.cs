@@ -18,5 +18,20 @@ namespace Tennis.UnitTests
             // Assert
             Assert.AreEqual(result, expected);
         }
+
+        [Test]
+        public void Test_FifteenLove()
+        {
+            // Arrange
+            var target = new Tennis();
+            var expected = "Fifteen-Love";
+
+            // Act
+            target.SetOnePlayerScore(1);
+            var result = target.Score();
+
+            // Assert
+            Assert.AreEqual(result, expected);
+        }
     }
 }
