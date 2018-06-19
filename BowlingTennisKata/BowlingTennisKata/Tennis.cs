@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Tennis
 {
@@ -38,7 +39,8 @@ namespace Tennis
 
             if (_firstPlayerScore > 3 || _secondPlayerScore > 3)
             {
-                return $"{_firstPlayer} {(_firstPlayerScore - _secondPlayerScore > 1 ? "Win" : "Adv")}";
+                var distanceOfScore = _firstPlayerScore - _secondPlayerScore;
+                return $"{(distanceOfScore > 0 ? _firstPlayer : _secondPlayer)} {(Math.Abs(distanceOfScore) > 1 ? "Win" : "Adv")}";
             }
 
             return $"{_scoreMapping[_firstPlayerScore]}-{_scoreMapping[_secondPlayerScore]}";
