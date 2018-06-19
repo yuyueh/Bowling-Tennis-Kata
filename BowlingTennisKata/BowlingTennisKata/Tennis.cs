@@ -35,9 +35,9 @@ namespace Tennis
             _firstPlayerScore = score;
         }
 
-        public void SetSecondPlayerScore(int i)
+        public void SetSecondPlayerScore(int score)
         {
-            throw new System.NotImplementedException();
+            _secondPlayerScore = score;
         }
     }
 }
