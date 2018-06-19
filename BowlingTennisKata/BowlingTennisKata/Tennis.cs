@@ -1,20 +1,29 @@
-﻿namespace Tennis
+﻿using System.Collections.Generic;
+
+namespace Tennis
 {
     public class Tennis
     {
         private int _firstPlayerScore = 0;
         private int _secondPlayerScore = 0;
+        private Dictionary<int, string> _scoreMapping;
+
+        public Tennis()
+        {
+            _scoreMapping = new Dictionary<int, string>()
+            {
+                {0, "Love"},
+                {1, "Fifteen"},
+                {2, "Thirty"}
+            };
+        }
 
         public string Score()
         {
-            if (_firstPlayerScore == 1 && _secondPlayerScore == 0)
+
+            if (_firstPlayerScore != _secondPlayerScore)
             {
-                return "Fifteen-Love";
-            }
-            
-            if (_firstPlayerScore == 2 && _secondPlayerScore == 0)
-            {
-                return "Thirty-Love";
+                return _scoreMapping[_firstPlayerScore] + "-" + _scoreMapping[_secondPlayerScore];
             }
 
             return "Love-All";
