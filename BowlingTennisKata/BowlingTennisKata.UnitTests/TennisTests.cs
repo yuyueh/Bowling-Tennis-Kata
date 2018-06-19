@@ -184,5 +184,20 @@ namespace Tennis.UnitTests
             // Assert
             Assert.AreEqual(result, expected);
         }
+
+        [Test]
+        public void LinWin()
+        {
+            // Arrange
+            var expected = "Lin Win";
+
+            // Act
+            _target.GivenFirstPlayerScore(5);
+            _target.GivenSecondPlayerScore(3);
+            var result = _target.Score();
+
+            // Assert
+            Assert.AreEqual(result, expected);
+        }
     }
 }
