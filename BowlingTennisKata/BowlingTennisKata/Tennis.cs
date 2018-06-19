@@ -8,7 +8,6 @@ namespace Tennis
         private int _firstPlayerScore;
         private int _secondPlayerScore;
         private readonly Dictionary<int, string> _scoreMapping;
-        private readonly Dictionary<int, string> _scoreCompareMapping;
         private readonly string _firstPlayer;
         private readonly string _secondPlayer;
 
@@ -29,24 +28,48 @@ namespace Tennis
 
         public string Score()
         {
-            if (_firstPlayerScore == _secondPlayerScore)
-            {
-                return _firstPlayerScore >= 3 ? "Deuce" : _scoreMapping[_firstPlayerScore] + "-All";
-            }
+            return IsSameScore() ? GetDecueOrSameScore() : IsWinOrAdvScore() ? GetWinOrAdvScore() : GetNormalScore();
+        }
 
-            if (_firstPlayerScore > 3 || _secondPlayerScore > 3)
-            {
-                var compare = _firstPlayerScore - _secondPlayerScore;
-
-                if (Math.Abs(compare) > 1)
-                {
-                    return (compare > 0 ? _firstPlayer : _secondPlayer) + " Win";
-                }
-                
-                return (compare > 0 ? _firstPlayer : _secondPlayer) + " Adv";
-            }
-
+        private string GetNormalScore()
+        {
             return _scoreMapping[_firstPlayerScore] + "-" + _scoreMapping[_secondPlayerScore];
+        }
+
+        private string GetWinOrAdvScore()
+        {
+            var distanceOfScore = _firstPlayerScore - _secondPlayerScore;
+            return GetWinnerNameByDistanceOfScore(distanceOfScore) + (IsWinning(distanceOfScore) ? " Win" : " Adv");
+        }
+
+        private string GetDecueOrSameScore()
+        {
+            return IsFirstPlayerScoreHighThanThirty() ? "Deuce" : _scoreMapping[_firstPlayerScore] + "-All";
+        }
+
+        private bool IsWinning(int distanceOfScore)
+        {
+            return Math.Abs(distanceOfScore) > 1;
+        }
+
+        private string GetWinnerNameByDistanceOfScore(int distanceOfScore)
+        {
+            return distanceOfScore > 0 ? _firstPlayer : _secondPlayer;
+        }
+
+        private bool IsFirstPlayerScoreHighThanThirty()
+        {
+            return _firstPlayerScore >= 3;
+        }
+
+        private bool IsWinOrAdvScore()
+        {
+            return _firstPlayerScore > 3 || _secondPlayerScore > 3;
+        }
+
+        private bool IsSameScore()
+        {
+            return _firstPlayerScore == _secondPlayerScore;
         }
 
         public void SetFirstPlayerScore(int score)
