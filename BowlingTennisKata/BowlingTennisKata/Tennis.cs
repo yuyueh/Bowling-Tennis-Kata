@@ -4,12 +4,14 @@ namespace Tennis
 {
     public class Tennis
     {
-        private int _firstPlayerScore = 0;
-        private int _secondPlayerScore = 0;
-        private Dictionary<int, string> _scoreMapping;
+        private int _firstPlayerScore;
+        private int _secondPlayerScore;
+        private readonly Dictionary<int, string> _scoreMapping;
 
         public Tennis()
         {
+            _firstPlayerScore = 0;
+            _secondPlayerScore = 0;
             _scoreMapping = new Dictionary<int, string>()
             {
                 {0, "Love"},
