@@ -5,15 +5,22 @@ namespace Tennis.UnitTests
     [TestFixture]
     public class TennisTests
     {
+        private Tennis _target;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _target = new Tennis();
+        }
+
         [Test]
         public void Test_LoveAll()
         {
             // Arrange
-            var target = new Tennis();
             var expected = "Love-All";
 
             // Act
-            var result = target.Score();
+            var result = _target.Score();
 
             // Assert
             Assert.AreEqual(result, expected);
@@ -23,12 +30,11 @@ namespace Tennis.UnitTests
         public void Test_FifteenLove()
         {
             // Arrange
-            var target = new Tennis();
             var expected = "Fifteen-Love";
 
             // Act
-            target.GivenFirstPlayerScore(1);
-            var result = target.Score();
+            _target.GivenFirstPlayerScore(1);
+            var result = _target.Score();
 
             // Assert
             Assert.AreEqual(result, expected);
