@@ -23,15 +23,19 @@ namespace Tennis
 
         public string Score()
         {
+            if (_firstPlayerScore >= 3 && _secondPlayerScore >= 3)
+            {
+                if (_firstPlayerScore == _secondPlayerScore)
+                {
+                    return "Deuce";
+                }
 
+                return "Lin Adv";
+            }
+            
             if (_firstPlayerScore != _secondPlayerScore)
             {
                 return _scoreMapping[_firstPlayerScore] + "-" + _scoreMapping[_secondPlayerScore];
-            }
-
-            if (_firstPlayerScore >= 3 )
-            {
-                return "Deuce";
             }
 
             return _scoreMapping[_firstPlayerScore] + "-All";
