@@ -5,12 +5,14 @@ namespace Tennis
     public class Tennis
     {
         private int _firstPlayerScore;
+        private int _secondPlayerScore;
         private Dictionary<int, string> _scoreMapping;
 
         public Tennis()
         {
             _scoreMapping = new Dictionary<int, string>()
             {
+                {0, "Love"},
                 {1, "Fifteen"},
                 {2, "Thirty"},
                 {3, "Forty"}
@@ -20,9 +22,9 @@ namespace Tennis
         public string Score()
         {
 
-            if (_firstPlayerScore > 0)
+            if (_firstPlayerScore != _secondPlayerScore)
             {
-                return $"{_scoreMapping[_firstPlayerScore]}-Love";
+                return $"{_scoreMapping[_firstPlayerScore]}-{_scoreMapping[_secondPlayerScore]}";
             }
 
             return "Love-All";
@@ -33,9 +35,9 @@ namespace Tennis
             _firstPlayerScore = score;
         }
 
-        public void GivenSecondPlayerScore(int i)
+        public void GivenSecondPlayerScore(int score)
         {
-            throw new System.NotImplementedException();
+            _secondPlayerScore = score;
         }
     }
 }
