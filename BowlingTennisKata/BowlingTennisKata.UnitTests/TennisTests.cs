@@ -67,5 +67,19 @@ namespace Tennis.UnitTests
             // Assert
             Assert.AreEqual(result, expected);
         }
+
+        [Test]
+        public void Test_LoveFifteen()
+        {
+            // Arrange
+            var expected = "Love-Fifteen";
+
+            // Act
+            _target.GivenSecondPlayerScore(1);
+            var result = _target.Score();
+
+            // Assert
+            Assert.AreEqual(result, expected);
+        }
     }
 }
