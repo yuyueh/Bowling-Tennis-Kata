@@ -7,9 +7,14 @@ namespace Tennis
         private int _firstPlayerScore;
         private int _secondPlayerScore;
         private Dictionary<int, string> _scoreMapping;
+        private string _firstPlayer;
+        private string _secondPlayer;
 
-        public Tennis()
+        public Tennis(string firstPlayer, string secondPlayer)
         {
+            _firstPlayer = firstPlayer;
+            _secondPlayer = secondPlayer;
+
             _scoreMapping = new Dictionary<int, string>()
             {
                 {0, "Love"},

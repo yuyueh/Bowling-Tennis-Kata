@@ -10,7 +10,7 @@ namespace Tennis.UnitTests
         [SetUp]
         public void SetUp()
         {
-            _target = new Tennis();
+            _target = new Tennis("Lin", "DZ");
         }
 
         [Test]
@@ -149,6 +149,21 @@ namespace Tennis.UnitTests
             // Act
             _target.GivenFirstPlayerScore(3);
             _target.GivenSecondPlayerScore(3);
+            var result = _target.Score();
+
+            // Assert
+            Assert.AreEqual(result, expected);
+        }
+
+        [Test]
+        public void Test_NormalDeuce()
+        {
+            // Arrange
+            var expected = "Deuce";
+
+            // Act
+            _target.GivenFirstPlayerScore(4);
+            _target.GivenSecondPlayerScore(4);
             var result = _target.Score();
 
             // Assert
