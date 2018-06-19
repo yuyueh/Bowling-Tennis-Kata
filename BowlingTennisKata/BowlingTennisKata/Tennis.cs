@@ -25,7 +25,8 @@ namespace Tennis
             {
                 {0, "Deuce"},
                 {1, firstPlayer + " Adv"},
-                {2, firstPlayer + " Win"}
+                {2, firstPlayer + " Win"},
+                {-1, secondPlayer + " Adv"}
             };
         }
 
