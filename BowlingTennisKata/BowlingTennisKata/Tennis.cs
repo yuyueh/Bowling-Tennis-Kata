@@ -10,5 +10,10 @@
         {
             return "Love-All";
         }
+
+        public void GivenFirstPlayerScore(int score)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
