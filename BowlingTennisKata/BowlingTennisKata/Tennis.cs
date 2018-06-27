@@ -35,9 +35,9 @@ namespace Tennis
                     {
                         return (_firstPlayerScore > _secondPlayerScore ? _firstPlayer : _secondPlayer) + " Adv";
                     }
-                    if (_firstPlayerScore - _secondPlayerScore > 1)
+                    if (Math.Abs(_firstPlayerScore - _secondPlayerScore) > 1)
                     {
-                        return _firstPlayer + " Win";
+                        return (_firstPlayerScore > _secondPlayerScore ? _firstPlayer : _secondPlayer) + " Win";
                     }
                 }
 
