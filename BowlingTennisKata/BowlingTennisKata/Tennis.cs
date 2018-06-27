@@ -7,9 +7,14 @@ namespace Tennis
         private int _firstPlayerScore;
         private int _secondPlayerScore;
         private readonly Dictionary<int, string> _scoreMapper;
+        private string _firstPlayer;
+        private string _secondPlayer;
 
         public Tennis(string firstPlayer, string secondPlayer)
         {
+            _firstPlayer = firstPlayer;
+            _secondPlayer = secondPlayer;
+
             _scoreMapper = new Dictionary<int, string>()
             {
                 {0, "Love"},
@@ -23,6 +28,11 @@ namespace Tennis
         {
             if (_firstPlayerScore != _secondPlayerScore)
             {
+                if (_firstPlayerScore >= 3 && _secondPlayerScore >= 3 && _firstPlayerScore - _secondPlayerScore == 1)
+                {
+                    return _firstPlayer + " Adv";
+                }
+
                 return _scoreMapper[_firstPlayerScore] + "-" + _scoreMapper[_secondPlayerScore];
             }
 
