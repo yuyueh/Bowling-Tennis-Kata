@@ -208,7 +208,7 @@ namespace Tennis.UnitTests
             var expected = "Lin Win";
 
             // Act
-            _target.GivenFirstPlayerScore(5);
+            _target.GivenFirstPlayerScore(4);
             _target.GivenSecondPlayerScore(0);
             var result = _target.Score();
 
