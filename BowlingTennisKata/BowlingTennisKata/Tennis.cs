@@ -26,7 +26,7 @@ namespace Tennis
                 return _scoreMapper[_firstPlayerScore] + "-" + _scoreMapper[_secondPlayerScore];
             }
 
-            return "Love-All";
+            return _scoreMapper[_firstPlayerScore] + "-All";
         }
 
         public void GivenFirstPlayerScore(int score)
