@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 
 namespace Tennis.UnitTests
 {
@@ -6,8 +7,17 @@ namespace Tennis.UnitTests
     public class TennisTests
     {
         [Test]
-        public void FirstTest()
+        public void LoveAll()
         {
+            // Arrange
+            var target = new Tennis("Lin", "DZ");
+            var expected = "Love-All";
+
+            // Act
+            var result = target.Score();
+
+            // Assert
+            Assert.AreEqual(result, expected);
         }
     }
 }
