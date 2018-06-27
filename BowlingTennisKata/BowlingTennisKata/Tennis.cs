@@ -4,12 +4,11 @@
     {
         public Tennis(string firstPlayer, string secondPlayer)
         {
-            throw new System.NotImplementedException();
         }
 
-        public int Score()
+        public string Score()
         {
-            throw new System.NotImplementedException();
+            return "Love-All";
         }
     }
 }
