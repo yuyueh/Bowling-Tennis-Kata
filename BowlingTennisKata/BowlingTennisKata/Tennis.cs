@@ -28,13 +28,13 @@ namespace Tennis
         {
             if (_firstPlayerScore != _secondPlayerScore)
             {
-                if (_firstPlayerScore >= 3 && _secondPlayerScore >= 3)
+                if (_firstPlayerScore > 3 || _secondPlayerScore > 3)
                 {
                     if (_firstPlayerScore - _secondPlayerScore == 1)
                     {
                         return _firstPlayer + " Adv";
                     }
-                    if (_firstPlayerScore - _secondPlayerScore == 2)
+                    if (_firstPlayerScore - _secondPlayerScore > 1)
                     {
                         return _firstPlayer + " Win";
                     }
