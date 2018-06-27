@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Tennis
 {
@@ -30,9 +31,9 @@ namespace Tennis
             {
                 if (_firstPlayerScore > 3 || _secondPlayerScore > 3)
                 {
-                    if (_firstPlayerScore - _secondPlayerScore == 1)
+                    if (Math.Abs(_firstPlayerScore - _secondPlayerScore) == 1)
                     {
-                        return _firstPlayer + " Adv";
+                        return (_firstPlayerScore > _secondPlayerScore ? _firstPlayer : _secondPlayer) + " Adv";
                     }
                     if (_firstPlayerScore - _secondPlayerScore > 1)
                     {
