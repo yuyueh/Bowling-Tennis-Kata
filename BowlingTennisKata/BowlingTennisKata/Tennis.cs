@@ -8,8 +8,8 @@ namespace Tennis
         private int _firstPlayerScore;
         private int _secondPlayerScore;
         private readonly Dictionary<int, string> _scoreMapper;
-        private string _firstPlayer;
-        private string _secondPlayer;
+        private readonly string _firstPlayer;
+        private readonly string _secondPlayer;
 
         public Tennis(string firstPlayer, string secondPlayer)
         {
@@ -18,38 +18,16 @@ namespace Tennis
 
             _scoreMapper = new Dictionary<int, string>()
             {
-                {0, "Love"},
-                {1, "Fifteen"},
-                {2, "Thirty"},
-                {3, "Forty"},
+                { 0, "Love" },
+                { 1, "Fifteen" },
+                { 2, "Thirty" },
+                { 3, "Forty" },
             };
         }
 
         public string Score()
         {
-            if (_firstPlayerScore != _secondPlayerScore)
-            {
-                if (_firstPlayerScore > 3 || _secondPlayerScore > 3)
-                {
-                    if (Math.Abs(_firstPlayerScore - _secondPlayerScore) == 1)
-                    {
-                        return (_firstPlayerScore > _secondPlayerScore ? _firstPlayer : _secondPlayer) + " Adv";
-                    }
-                    if (Math.Abs(_firstPlayerScore - _secondPlayerScore) > 1)
-                    {
-                        return (_firstPlayerScore > _secondPlayerScore ? _firstPlayer : _secondPlayer) + " Win";
-                    }
-                }
-
-                return _scoreMapper[_firstPlayerScore] + "-" + _scoreMapper[_secondPlayerScore];
-            }
-
-            if (_firstPlayerScore >= 3)
-            {
-                return "Deuce";
-            }
-
-            return _scoreMapper[_firstPlayerScore] + "-All";
+            return IsSameScore() ? GetSameScore() : IsAdvOrWin() ? GetAdvOrWinScore() : GetNormalScore();
         }
 
         public void GivenFirstPlayerScore(int score)
@@ -60,6 +38,38 @@ namespace Tennis
         public void GivenSecondPlayerScore(int score)
         {
             _secondPlayerScore = score;
+        }
+
+        private string GetAdvOrWinScore()
+        {
+            var higherPlayer = _firstPlayerScore > _secondPlayerScore ? _firstPlayer : _secondPlayer;
+            var result = Math.Abs(_firstPlayerScore - _secondPlayerScore) == 1 ? " Adv" : " Win";
+            return higherPlayer + result;
+        }
+
+        private string GetSameScore()
+        {
+            return IsDeuce() ? "Deuce" : _scoreMapper[_firstPlayerScore] + "-All";
+        }
+
+        private string GetNormalScore()
+        {
+            return _scoreMapper[_firstPlayerScore] + "-" + _scoreMapper[_secondPlayerScore];
+        }
+
+        private bool IsAdvOrWin()
+        {
+            return _firstPlayerScore > 3 || _secondPlayerScore > 3;
+        }
+
+        private bool IsDeuce()
+        {
+            return _firstPlayerScore >= 3;
+        }
+
+        private bool IsSameScore()
+        {
+            return _firstPlayerScore == _secondPlayerScore;
         }
     }
 }
