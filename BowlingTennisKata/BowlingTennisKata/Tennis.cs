@@ -26,6 +26,11 @@ namespace Tennis
                 return _scoreMapper[_firstPlayerScore] + "-" + _scoreMapper[_secondPlayerScore];
             }
 
+            if (_firstPlayerScore >= 3)
+            {
+                return "Deuce";
+            }
+
             return _scoreMapper[_firstPlayerScore] + "-All";
         }
 
